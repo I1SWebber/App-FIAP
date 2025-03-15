@@ -23,8 +23,7 @@ import br.com.fiap.app.ui.theme.DarkBlueGrey
 import br.com.fiap.app.ui.theme.Orange
 
 @Composable
-fun RegisterScreen(navController: NavController) {
-    var name by remember { mutableStateOf("") }
+fun LoginScreen(navController: NavController) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -47,15 +46,6 @@ fun RegisterScreen(navController: NavController) {
         Spacer(modifier = Modifier.height(16.dp))
 
         OutlinedTextField(
-            value = name,
-            onValueChange = { name = it },
-            label = { Text("Nome") },
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        OutlinedTextField(
             value = email,
             onValueChange = { email = it },
             label = { Text("E-mail") },
@@ -74,40 +64,37 @@ fun RegisterScreen(navController: NavController) {
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
         )
 
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
-        // Botão de registro
         Button(
-            onClick = { /* TODO: Implementar lógica de registro */ },
+            onClick = { navController.navigate("reports") },
             modifier = Modifier
                 .fillMaxWidth()
                 .height(50.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Orange),
             shape = RoundedCornerShape(12.dp)
         ) {
-            Text("Registrar", color = Color.White)
+            Text("Entrar", color = Color.White)
         }
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Alternativa de login
         Text(
-            text = "Já possui uma conta?",
+            text = "Esqueceu a senha?",
             color = DarkBlueGrey,
             fontSize = 14.sp,
-            modifier = Modifier.clickable { /* TODO: Navegar para tela de login */ }
+            modifier = Modifier.clickable { /* TODO: Implementar recuperação de senha */ }
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Botão de login
+        // Botão para tela de registro
         OutlinedButton(
-            onClick = { navController.navigate("login") },
+            onClick = { navController.navigate("register") },
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp)
-
         ) {
-            Text(text = "Entrar", color = Color.Blue)
+            Text(text = "Criar Conta", color = Color.Blue)
         }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -122,6 +109,3 @@ fun RegisterScreen(navController: NavController) {
         }
     }
 }
-
-
-

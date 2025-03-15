@@ -17,6 +17,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import br.com.fiap.app.screens.LoginScreen
 import br.com.fiap.app.ui.theme.AppTheme
 import br.com.fiap.app.screens.RegisterScreen
 
@@ -28,8 +32,21 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) {
-                    RegisterScreen()
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background){
+
+                    val navController = rememberNavController()
+
+                    NavHost(
+                        navController = navController,
+                        startDestination = "login"
+                    ) {
+                        composable(route = "login") { LoginScreen(navController) }
+                        composable(route = "register") { RegisterScreen(navController) }
+                        composable(route = "reports") { ReportScreen(navController) }
+                    }
+
                 }
             }
         }
@@ -37,11 +54,3 @@ class MainActivity : ComponentActivity() {
 }
 
 
-
-@Preview(showBackground = true)
-@Composable
-fun RegisterScreenPreview() {
-    AppTheme {
-        RegisterScreen()
-    }
-}
