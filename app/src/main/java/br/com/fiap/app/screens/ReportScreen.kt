@@ -18,6 +18,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import br.com.fiap.app.ui.theme.Orange
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.outlined.LocationOn
+import androidx.compose.material.icons.sharp.LocationOn
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -32,7 +37,7 @@ fun ReportScreen(navController: NavController) {
                         fontWeight = FontWeight.Bold,
                         fontFamily = FontFamily.Serif,
                         modifier = Modifier.fillMaxWidth(),
-                        color = Color.Black
+                        color = Color.White
                     )
                 },
                 navigationIcon = {
@@ -42,7 +47,7 @@ fun ReportScreen(navController: NavController) {
                         modifier = Modifier
                             .size(35.dp)
                             .offset(x = (5).dp),
-                        tint = Color.Black
+                        tint = Color.White
                     )
                 },
                 actions = {
@@ -50,12 +55,12 @@ fun ReportScreen(navController: NavController) {
                         painter = painterResource(id = R.drawable.filtro),
                         contentDescription = "filtro",
                         modifier = Modifier
-                            .size(35.dp)
+                            .size(24.dp)
                             .offset(x = (-10).dp),
-                        tint = Color.Black
+                        tint = Color.White
                     )
                 },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color(0xFF0D47A1)),
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = Orange),
                 modifier = Modifier
                     .clip(shape = RoundedCornerShape(bottomStart = 4.dp, bottomEnd = 4.dp))
             )
@@ -69,33 +74,46 @@ fun ReportScreen(navController: NavController) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 32.dp, vertical = 20.dp)
+                    .padding(horizontal = 8.dp, vertical = 20.dp)
             ) {
-                repeat(4) {
+                repeat(5) {
                     Card(
                         modifier = Modifier
-                            .padding(vertical = 10.dp)
+                            .padding(vertical = 10.dp, horizontal = 10.dp)
                             .fillMaxWidth()
                             .height(100.dp),
-                        elevation = CardDefaults.cardElevation(4.dp),
-                        colors = CardDefaults.cardColors(containerColor = Color(0xFFF5F5F5))
+                        elevation = CardDefaults.cardElevation(1.4.dp),
+                        colors = CardDefaults.cardColors(containerColor = Color.White)
                     ) {
+
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.padding(vertical = 10.dp, horizontal = 10.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Outlined.LocationOn,
+                                contentDescription = "Localização",
+                                tint = Color.Black,
+                                modifier = Modifier.size(22.dp)
+                            )
+
+                            Spacer(modifier = Modifier.width(8.dp))
+
+                            Text(
+                                text = "Rua Eugênio Ulhano",
+                                fontSize = 16.sp,
+                                color = Color.Black
+                            )
+                        }
+
                         Text(
-                            text = "Local: Rua Eugênio Ulhano",
+
+                            text = "Árvores caindo atrapalhando a circulação da rua a circulação da rua a circulação da rua",
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(vertical = 10.dp, horizontal = 5.dp),
+                                .padding(horizontal = 10.dp),
                             textAlign = TextAlign.Start,
-                            fontSize = 15.sp,
-                            color = Color.Black
-                        )
-                        Text(
-                            text = "Acontecido: Árvores caindo atrapalhando a circulação da rua",
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 5.dp),
-                            textAlign = TextAlign.Start,
-                            fontSize = 15.sp,
+                            fontSize = 13.sp,
                             color = Color.Black
                         )
                     }
