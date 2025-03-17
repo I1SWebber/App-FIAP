@@ -31,12 +31,11 @@ fun LoginScreen(navController: NavController) {
         modifier = Modifier
             .fillMaxSize()
             .background(Color.White)
-            .padding(horizontal = 32.dp),
+            .padding(horizontal = 32.dp, vertical = 120.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.height(48.dp))
 
-        // Título
         Text(
             text = "SeAlert",
             style = MaterialTheme.typography.headlineLarge,
@@ -68,9 +67,7 @@ fun LoginScreen(navController: NavController) {
 
         Button(
             onClick = { navController.navigate("reports") },
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(50.dp),
+            modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(containerColor = Orange),
             shape = RoundedCornerShape(12.dp)
         ) {
@@ -79,8 +76,9 @@ fun LoginScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
+
         Text(
-            text = "Esqueceu a senha?",
+            text = "Não possui uma conta?",
             color = DarkBlueGrey,
             fontSize = 14.sp,
             modifier = Modifier.clickable { /* TODO: Implementar recuperação de senha */ }
@@ -88,13 +86,14 @@ fun LoginScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Botão para tela de registro
-        OutlinedButton(
+
+        Button(
             onClick = { navController.navigate("register") },
             modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Blue),
             shape = RoundedCornerShape(12.dp)
         ) {
-            Text(text = "Criar Conta", color = Color.Blue)
+            Text(text = "Criar Conta", color = Color.White)
         }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -106,6 +105,30 @@ fun LoginScreen(navController: NavController) {
             shape = RoundedCornerShape(12.dp)
         ) {
             Text(text = "Continuar com Google", color = DarkBlueGrey)
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+
+        Column {
+            Row {
+                Text(
+                    text = "Esqueceu a senha?",
+                    color = DarkBlueGrey,
+                    fontSize = 14.sp,
+                    modifier = Modifier.clickable { /* TODO: Implementar recuperação de senha */ }
+                )
+
+                Spacer(modifier = Modifier.width(2.dp))
+
+                Text(
+                    text = "Redefinir",
+                    color = Color.Blue,
+                    fontSize = 14.sp,
+                    modifier = Modifier.clickable { /* TODO: Implementar recuperação de senha */ }
+                )
+
+            }
         }
     }
 }
