@@ -25,4 +25,5 @@ Este é um aplicativo desenvolvido em Kotlin para a faculdade. O projeto tem com
 Agradecemos a todos que contribuíram para o desenvolvimento deste projeto:
 
 Miquéias Martins
+Matheus Webber
 

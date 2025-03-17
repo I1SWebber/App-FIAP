@@ -45,6 +45,7 @@ class MainActivity : ComponentActivity() {
                         composable(route = "login") { LoginScreen(navController) }
                         composable(route = "register") { RegisterScreen(navController) }
                         composable(route = "reports") { ReportScreen(navController) }
+                        composable(route = "create_report") { CreateReportScreen(navController) }
                     }
 
                 }
