@@ -21,6 +21,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import br.com.fiap.app.screens.LoginScreen
+import br.com.fiap.app.screens.ProfileScreen
 import br.com.fiap.app.ui.theme.AppTheme
 import br.com.fiap.app.screens.RegisterScreen
 
@@ -46,6 +47,7 @@ class MainActivity : ComponentActivity() {
                         composable(route = "register") { RegisterScreen(navController) }
                         composable(route = "reports") { ReportScreen(navController) }
                         composable(route = "create_report") { CreateReportScreen(navController) }
+                        composable(route = "profile") { ProfileScreen(navController) }
                     }
 
                 }

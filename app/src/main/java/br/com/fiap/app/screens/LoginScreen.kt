@@ -66,7 +66,7 @@ fun LoginScreen(navController: NavController) {
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
-            onClick = { navController.navigate("reports") },
+            onClick = { navController.navigate("profile") },
             modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(containerColor = Orange),
             shape = RoundedCornerShape(12.dp)
