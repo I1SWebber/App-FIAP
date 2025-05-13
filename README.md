@@ -26,4 +26,4 @@ Agradecemos a todos que contribuíram para o desenvolvimento deste projeto:
 
 Miquéias Martins
 Matheus Webber
-
+Enrique Bastos   
